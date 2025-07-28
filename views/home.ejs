@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EMS</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Employee List</h1>
+    <form action="/create" method="POST">
+        <input name="name" placeholder="Name" required>
+        <input name="email" placeholder="Email" required>
+        <input name="job" placeholder="Job Title" required>
+        <input name="salary" type="number" placeholder="Salary" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        <% employees.forEach(function(emp){ %>
+            <li>
+                <%= emp.name %> - <%= emp.job %> - $<%= emp.salary %>
+                <a href="/edit/<%= emp._id %>">Edit</a>
+               <a href="/delete/<%= emp._id %>">Delete</a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
